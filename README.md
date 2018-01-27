@@ -1,7 +1,7 @@
 # Intro to Algorithms
 
 ## Purpose
-The main goal of this guide is to get developers started with algorithms.  This guide will serve as a roadmap for developers who do not have not taken an introductory algorithms course or need a refresher on basic algorithm design. 
+The main goal of this guide is to get developers started with algorithms.  This guide will serve as a roadmap for developers who have not taken an introductory algorithms course or need a refresher on basic algorithm design. 
 
 *In addition, this guide will also prepare developers for the [Outco program](http://outco.io) and their admissions fundamentals check.*
 
@@ -29,36 +29,36 @@ If you are missing some of the minimum requirements, then I recommend taking a r
 
 ## Strategy
 
-The strategy to develop your algorithm skills revolves around a few extremely important concepts that need to be repeated consistently.  They are: 1) acquiring **knowledge**, 2) **applying** concepts, and 3) **testing** one's understand of the concepts.  
+The strategy to develop your algorithm skills revolves around a few extremely important concepts that need to be repeated consistently.  They are: 1) acquiring **knowledge**, 2) **applying** concepts, and 3) **testing** one's understanding of the concepts.  
 
 But there is a structured approach to algorithms that will make your life easier to learn faster.  In math, you have prerequisites that you should take before taking a more advanced class.  These prerequisites are laid out in an organized fashion so you do not get overwhelmed skipping over foundational concepts before moving on.
 
 Same with algorithms and data structures.  There is a structure to the topics that you can learn that will greatly improve your understanding if you progress through the algorithms. Here are the steps I suggest you follow:
 
 1. Learn to evaluate efficiency (complexity) of algorithms
-2. Develop a process for problem solving
+2. Develop a process for problem-solving
 3. Learn basic algorithm patterns
 4. Learn basic data structures
 5. Put into practice
 6. Start easy and progress harder
 7. Track and measure
 
-Lets cover each one of those areas step by step.
+Let's cover each one of those areas step by step.
 
 ## 1. Evaluating Efficiency
 
-Evaluating the efficiency of algorithms is the first step to really developing the ability solve challenging algorithms.  If you cannot measure the efficiency of an algorithm, how can one compare the scalability of one approach to another.
+Evaluating the efficiency of algorithms is the first step to really developing the ability solve challenging algorithms.  If you cannot measure the efficiency of an algorithm, how can one compare the scalability of one approach to another?
 
-So lets start with time and space complexity. 
+So let's start with time and space complexity. 
 
 **Time complexity** - measures the amount of computations  
 **Space complexity** - measures the amount of memory
 
 The amount of computations or memory required to solve the algorithm is measured relative to the input size as the input scales up. Remember, for both time and space complexity, we are measuring against the **size of the input**.
 
-We use **Big-O notation** to measure time and space complexity. Big-O is a mathematical way to gauge the rate in which something grows. Big-O refers to the worse case scenario. That means, if we chose the worse possible input for the algorithm, how long would it take? There is a bunch more technical details on Big-O, how it is accessed in academia vs industry, but for now, we should wait for later to explore this topic more.
+We use **Big-O notation** to measure time and space complexity. Big-O is a mathematical way to gauge the rate in which something grows. Big-O refers to the worst case scenario. That means, if we chose the worst possible input for the algorithm, how long would it take? There are a bunch more technical details on Big-O, how it is accessed in academia vs industry, but for now, we should wait for later to explore this topic more.
 
-Before we dive further into how to analyze for Big-O, lets focus on the input first. 
+Before we dive further into how to analyze for Big-O, let's focus on the input first. 
 
 ### 1a. Determining What is Scaling
 When you are trying to access the time or space complexity of an algorithm, always ask yourself: *what about my input is scaling?*
@@ -80,7 +80,7 @@ function printInteger(num) {
 
 ---
 
-Lets try another problem:  
+Let's try another problem:  
 **Q:** For the following code below, what is scaling?
 
 ```javascript
@@ -109,7 +109,7 @@ It can get tricky with different types of inputs, here are some of the input typ
 | Matrix		| Width and height of matrix|
 | Graph 		| Number of vertices and edges| 
 
-*Disclaimer: These are 'common' factors that scale.  Sometimes with particular problems there might be less obvious factors that scale.*
+*Disclaimer: These are 'common' factors that scale.  Sometimes with particular problems, there might be less obvious factors that scale.*
 
 
 ### 1b. Units of Time and Space
@@ -135,7 +135,7 @@ To help you begin to analyze for complexity you need to get a sense of what a un
 
 When you are starting out, try evaluating the complexity line by line and determine the complexity for each line.  Then sum up the complexity of each line to get the total. 
 
-Lets start with time complexity for now. 
+Let's start with time complexity for now. 
 
 ---
 **Q:** Answer these two questions for the code below:
@@ -154,7 +154,7 @@ function printFirstLast(arr) {
 **A:**
 
 1. The length of the input array is scaling
-2. The first ```print``` statement has 2 operations and the second ```print``` statement has has 4 operations. Do you know why?
+2. The first ```print``` statement has 2 operations and the second ```print``` statement has 4 operations. Do you know why?
 
 Here is how we could mark the computations line by line:
 
@@ -168,7 +168,7 @@ function printFirstLast(arr) {
 // total = 2 + 4 = 6
 ```
 
-The first print statement has an array access and then a printing to the console, so thats 2 operations. The second print statement involves: accessing the length, subtracting from the length, accessing the index, and printing to the console. Thats a total of 4 for the second print statement. 
+The first print statement has an array access and then a printing to the console, so that's 2 operations. The second print statement involves: accessing the length, subtracting from the length, accessing the index, and printing to the console. That's a total of 4 for the second print statement. 
 
 In total there are 6 computations, we would say this is O(1) time complexity. Read the next section to find out why.
 
@@ -188,17 +188,17 @@ This is because for Big-O analysis we only care about the largest order of magni
 1. 6 is the lowest (and only term) 
 2. 6 itself is a coefficient of the constant term, thus it gets reduced to 1. 
 
-So the time complexity for the function above is **O(1) or constant time**. 
+So the time complexity of the function above is **O(1) or constant time**. 
 
 ---
 
-What does O(1) time mean? Well it means the amount of operations the algorithm takes to execute as the input scales remains constant. This makes sense, because no matter how large the input array gets, the function ```printFirstLast``` will still take roughly the same time to execute.
+What does O(1) time mean? Well, it means the amount of operations the algorithm takes to execute as the input scales remains constant. This makes sense because no matter how large the input array gets, the function ```printFirstLast``` will still take roughly the same time to execute.
 
-Lets get some more practice looking at the following 10 totals and reduce it to the magnitude order for Big-O. You may have to look up some power laws. Also check out [Big-O Cheetsheet](http://bigocheatsheet.com/) if you are unsure how logarithmic terms compare to other terms.
+Let's get some more practice looking at the following 10 totals and reduce it to the magnitude order for Big-O. You may have to look up some power laws. Also, check out [Big-O Cheetsheet](http://bigocheatsheet.com/) if you are unsure how logarithmic terms compare to other terms.
 
 ```
 PROBLEM SET 1:
-Reduce the following to it Big-O magnitude:
+Reduce the following to it's Big-O magnitude:
 1) 5 + N
 2) N + N^2
 3) 15N + 13N
@@ -213,9 +213,9 @@ Reduce the following to it Big-O magnitude:
 
 (Scroll to the bottom to get the answers to this problem set.)
 
-### 1e. Looping are Sometimes Linear but not Always
+### 1e. Looping is Sometimes Linear but not Always
 
-**For Loops:** Lets explore looping more. Most of the time, when we loop through a collection that also happens to be an input, then we would consider the loop to be O(N).
+**For Loops:** Let's explore looping more. Most of the time, when we loop through a collection that also happens to be an input, then we would consider the loop to be O(N).
 
 **Q:** Determine the time complexity of this algorithm below:
 
@@ -233,7 +233,7 @@ You may have guessed that it is **linear** time or **O(N)**. And yes, that would
 
 ---
 
-To determine why the operations for a loop has a linear order magnitude. Lets explore it in more detail line by line. When there is a loop we have to multiply the operations inside the loop by the total number of iteration the loop runs.
+To determine why the operations for a loop has a linear order magnitude. Let's explore it in more detail line by line. When there is a loop we have to multiply the operations inside the loop by the total number of iteration the loop runs.
 
 ```javascript
 // print each item in the array.
@@ -249,7 +249,7 @@ function printAll(arr) {
 // reduce down to O(N) or linear time complexity
 ```
 
-**While Loops** Sometimes loops can be tricky, especially with ```while``` loops. You have to really evaluate the code to see how many times the loops runs and if it is proportional to the input.
+**While Loops** Sometimes loops can be tricky, especially with ```while``` loops. You have to really evaluate the code to see how many times the loops run and if it is proportional to the input.
 
 ---
 
@@ -266,7 +266,7 @@ function firstTen(arr) {
 }
 ```
 
-**A:** Lets explore the code line by line, keep in mind we have 
+**A:** Let's explore the code line by line, keep in mind we have 
 
 
 ```javascript
@@ -284,7 +284,7 @@ function firstTen(arr) {
 // reduce down to O(1) or constant time complexity
 ```
 ---
-**While Loop continued:** Lets evaluate a slight variation of the previous problem.
+**While Loop continued:** Let's evaluate a slight variation of the previous problem.
 
 **Q:** Evaluate the following code for time complexity:
 
@@ -298,7 +298,7 @@ function afterTen(arr) {
 	}
 }
 ```
-**A:** Lets explore the code line by line, keep in mind we have 
+**A:** Let's explore the code line by line, keep in mind we have 
 
 
 ```javascript
@@ -362,14 +362,14 @@ The loop is a linear chunk of operations because there are a lineat amount of it
 
 ### 1g. Nested vs Un-nested Loops
 
-Be careful not to mistakenly assume that just because there are multiple ```for-loops``` in an algorithm that that it is automatically quadratic O(N^2) complexity or more. The simple rule you should remember here is:
+Be careful not to mistakenly assume that just because there are multiple ```for-loops``` in an algorithm that it is automatically quadratic O(N^2) complexity or more. The simple rule you should remember here is:
 
 * **nested loops multiply**
 * **un-nested loops add**
 
-Lets go over a few different examples and analyze problems to see how nested versus un-nested loops affect the overall complexity of the algorithm.
+Let's go over a few different examples and analyze problems to see how nested versus un-nested loops affect the overall complexity of the algorithm.
 
-**Nested Loop** Lets take a look at a problem with a nested loop:
+**Nested Loop** Let's take a look at a problem with a nested loop:
 
 ```javascript
 // print all values that have a matching pairs
@@ -383,7 +383,7 @@ function findPairs(arr) {
     }
 }
 ```
-The problem here has a nested loop, lets evaluate this algorithm for time complexity:
+The problem here has a nested loop, let's evaluate this algorithm for time complexity:
 
 ```javascript
 // print all values that have a matching pairs
@@ -402,11 +402,11 @@ Since there are two nested loops,  we multiply linear, linear, and constant toge
 
 ### 1h. Understand Complexity of Native Methods
 
-If your language has a native sorting method, do you know what happening behind the scenes? Take sure you take the time to research and look up what sorting method your language is using.  Then loop up the time and space complexity requirements of that sorting function.
+If your language has a native sorting method, do you know what happens behind the scenes? Make sure you take the time to research and look up what sorting method your language is using.  Then loop up the time and space complexity requirements of that sorting function.
 
 The native methods of your language have inherent time and space complexity that you need to understand. One good way you can learn more about the time and space complexity of these functions is to code some of them out yourself.
 
-Here is an example list for JavaScript arrays:
+Here is an example list of JavaScript arrays:
 
 * Array - indexOf
 * Array - map
@@ -414,7 +414,7 @@ Here is an example list for JavaScript arrays:
 * Array - reverse
 * Array - sort
 
-In other languages you may look up methods for:
+In other languages, you may look up methods for:
 
 * Java - ArrayList, HashMap
 * Python - List, Dictionary
@@ -422,7 +422,7 @@ In other languages you may look up methods for:
 
 Many of the methods associated with these data structures are going to be more costly than time O(1) and some create a new copy which can lead to O(N) space.
 
-Try rewritting some of the native methods yourself with these problems:
+Try rewriting some of the native methods yourself with these problems:
 
 ```
 PROBLEM SET 2:
@@ -452,11 +452,11 @@ each character separated into its own separate item.
 
 ### 1i. Understand Complexity of Data Structure Methods
 
-For now go to this website: [Big-O Cheatsheet](http://bigocheatsheet.com/) and take a look through it. For sorting and data structures, it is important to take note of the *average* time complexity. The *average* case will be the commonly used if you are apply these sorting methods and data structures in a larger algorithm.
+For now go to this website: [Big-O Cheatsheet](http://bigocheatsheet.com/) and take a look through it. For sorting and data structures, it is important to take note of the *average* time complexity. The *average* case will be the commonly used if you apply these sorting methods and data structures in a larger algorithm.
 
-Why suddenly focus *average* if we have been focused on Big-O which is looking at the worse case senario? Its because when working on an algorithm that uses sorting/data structures methods, the worse case input for the entire algorithm typically does not coincide with the worse case input for the sorting/data structure methods.
+Why suddenly focus *average* if we have been focused on Big-O which is looking at the worst case senario? Its because when working on an algorithm that uses sorting/data structures methods, the worst case input for the entire algorithm typically does not coincide with the worst case input for the sorting/data structure methods.
 
-We will expand more on this in the future, but for now when we evaluate algorithms, if using sorts and data structure methods as part of your solution, it is more common to use *average* case when evaluating for worse case. Otherwise everytime we lookup a key in a hashtable, it would be O(N) which only happens in ultra-rare senarios.
+We will expand more on this in the future, but for now when we evaluate algorithms, if using sorts and data structure methods as part of your solution, it is more common to use *average* case when evaluating for worst case. Otherwise everytime we lookup a key in a hashtable, it would be O(N) which only happens in ultra-rare scenarios.
 
 ### 1h. Recognize Common Orders of Magnitudes
 
@@ -511,7 +511,7 @@ The basic list of algorithm patterns will help you progress throughout the first
 	* [OpenMyMind - Insertion Sort](http://algorithms.openmymind.net/sort/insertionsort.html)
 	* [Visualgo - Visualize Sorting Algorithms](https://visualgo.net/sorting)
 
-* **Recursion** Finally, getting to recursion which can be a tough hump to get over for thosejust starting out.  We recommend using the Helper Method Recursion pattern which uses a helper method to actually do the recursion. One way to start is to replace simple loops with recursion. We will be posting simpler problems for you to start off soon.
+* **Recursion** Finally, getting to recursion which can be a tough hump to get over for those just starting out.  We recommend using the Helper Method Recursion pattern which uses a helper method to actually do the recursion. One way to start is to replace simple loops with recursion. We will be posting simpler problems for you to start off soon.
 	* [Khan Academy - Recursive Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/p/challenge-recursive-powers)
 	* [Eloquent JavaScript - Recursion Section](http://eloquentjavascript.net/03_functions.html) 
 	* [Rithm School - Intro to Recursion](https://www.rithmschool.com/courses/javascript-computer-science-fundamentals/introduction-to-recursion)
@@ -520,10 +520,10 @@ The basic list of algorithm patterns will help you progress throughout the first
 
 ## 3. Learn Linear Data Structures
 
-* **Arrays and Dynamic Arrays:** Start here to learn more about arrays and dynamic arrays.  If you began your development journey learning Python, Ruby, or JavaScript, you may not have been exposed to primitive array data structures (continuous blocks of memory) because your language has abstracted the concept of arrays into a more powerful, more functional data structures. Lets jump back to the old times and find out what arrays really are under the hood.
+* **Arrays and Dynamic Arrays:** Start here to learn more about arrays and dynamic arrays.  If you began your development journey learning Python, Ruby, or JavaScript, you may not have been exposed to primitive array data structures (continuous blocks of memory) because your language has abstracted the concept of arrays into a more powerful, more functional data structures. Let's jump back to the old times and find out what arrays really are under the hood.
 	* 	[OpenMyMind - Arrays and Dynamic Arrays](http://algorithms.openmymind.net/structures/arrays.html)
 
-* **Linked Lists, Stacks, and Queues** These linear data structures are often neglected as data structures in Python, Ruby, and JavaScript because Lists and Arrays in these languages has combined their functionality.  It is still important to understand how they are constructed, and how to nagivate through these more limited functionality data structures. Often we are given constraints, learning to work with these constraints make us more aware ways to tackle a problem.  That starts with really understanding these linear data structues.
+* **Linked Lists, Stacks, and Queues** These linear data structures are often neglected as data structures in Python, Ruby, and JavaScript because Lists and Arrays in these languages have combined their functionality.  It is still important to understand how they are constructed, and how to navigate through these more limited functionality data structures. Often we are given constraints, learning to work with these constraints make us more aware ways to tackle a problem.  That starts with really understanding these linear data structures.
 	* [MyCodeSchool - LinkedList](https://www.youtube.com/watch?v=NobHlGUjV3g&t)
 	* [Visualgo - LinkedList, Stacks, Queues](https://visualgo.net/list)
 	* [Gayle McDowell - Stacks and Queues](https://www.youtube.com/watch?v=wjI1WNcIntg)
@@ -532,7 +532,7 @@ More problem sets to come for these problems.
 
 *** Under Construction ***
 
-## 4. Develop a Process for Problem Solving
+## 4. Develop a Process for Problem-Solving
 
 Read the following 4 points and ask yourself if you ascribe to some or all of these challenges:
 
@@ -541,14 +541,14 @@ Read the following 4 points and ask yourself if you ascribe to some or all of th
 * I can jump into coding quickly, but when I find errors in my logic my algorithm seems to break down and I become stuck.
 * I can come up with an algorithm in my head that I think might work, but I cannot seem to write it out correctly.
 
-These are challenges that having a more structured process for problem solving would help. What you want to establish is a framework for solving problems. This framework will provide you with a list of steps and line items to check off to ensure:
+These are challenges that having a more structured process for problem-solving would help. What you want to establish is a framework for solving problems. This framework will provide you with a list of steps and line items to check off to ensure:
 
  1. you properly understand the problem
  2. you are able to vocalize and visualize your code and talk over solutions at a high level
  3. you can analyze your solution to determine the validity of your algorithm 
  4. you are able to translate your algorithm into code you can verify
 
-Here is an example framework which you can adopt and modify as needed to fit your style of problem solving:
+Here is an example framework which you can adopt and modify as needed to fit your style of problem-solving:
 
 1. **Understanding the problem**
     * Ask clarifying questions
@@ -569,7 +569,7 @@ Here is an example framework which you can adopt and modify as needed to fit you
     * Run example cases
     * Checking edge conditions
 
-### Roadmap to develop a problem solving process
+### Roadmap to develop a problem-solving process
 
 1. Adopt a framework and print out the steps for reference.
 2. Select easier problems to practice your framework (two each day minimum). Focus on the process rather than the algorithm.
